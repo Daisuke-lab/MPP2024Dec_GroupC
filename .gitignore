@@ -1,0 +1,8 @@
+*.class
+target/*
+*.drawio
+.idea/*
+.metadata/*
+.settings/*
+*.classpath
+*.project
