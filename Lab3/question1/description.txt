@@ -1,0 +1,13 @@
+p1 is of type PersonWithJob and p2 is of type Person.
+we notice that line 
+    if (!(aPerson instanceof PersonWithJob)) return false;
+checks if p2 (of type Person) is an instance of PersonWithJob. 
+This returns false because p2 is not a PersonWithJob.
+As a result, p1.equals(p2) evaluates to false.
+
+another way 
+p2 is of type Person and p1 is of type PersonWithJob.
+we observed this line 
+    if (!(aPerson instanceof Person)) return false;
+checks if p1 (of type PersonWithJob) is an instance of Person. 
+This returns true because PersonWithJob is a subclass of Person.
