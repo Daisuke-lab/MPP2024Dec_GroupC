@@ -1,0 +1,3 @@
+Using inheritance in this situation can be a poor decision. The reason is the violation of LSP.
+Since it is a circle, the height should be 0, however the height is public in cylinder class. It can be set
+mistakenly even after circle extends cylinder, which can cause the wrong output for computeVolume. 
