@@ -11,3 +11,5 @@ we observed this line
     if (!(aPerson instanceof Person)) return false;
 checks if p1 (of type PersonWithJob) is an instance of Person. 
 This returns true because PersonWithJob is a subclass of Person.
+
+The best approach is to replace inheritance with composition.
