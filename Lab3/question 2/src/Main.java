@@ -19,7 +19,7 @@ public class Main {
         building2.addApartment(apt4);
 
         // Create Landlord and add buildings
-        Landlord landlord = new Landlord();
+        Landlord landlord = new Landlord("Kalab");
         landlord.addBuilding(building1);
         landlord.addBuilding(building2);
 
