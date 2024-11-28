@@ -2,9 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Landlord {
+    private String name;
     private List<Building> buildings;
 
-    public Landlord() {
+    public Landlord(String name) {
+        this.name = name;
         this.buildings = new ArrayList<>();
     }
 
