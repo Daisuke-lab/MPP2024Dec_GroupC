@@ -1,3 +1,4 @@
+package prob4;
 public abstract class Employee {
     private String empId;
 
@@ -6,7 +7,7 @@ public abstract class Employee {
     }
 
     public String print() { return ""; }
-
+    
     public Paycheck calCompensation(int month, int year) {
         double grossPay = calcGrossPay(month, year);
         return new Paycheck(

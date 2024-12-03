@@ -1,3 +1,4 @@
+package prob4;
 public class HourlyEmployee extends Employee {
     private double hourlyWage;
     private double hoursPerWeek;
@@ -10,11 +11,11 @@ public class HourlyEmployee extends Employee {
 
     @Override
     public double calcGrossPay(int month, int yr) {
-        int totalMonths = month + (yr * 12);
+//        int totalMonths = month + (yr * 12);
 
         double oneMonthPay = (hourlyWage * hoursPerWeek * 4);
-        double totalPay = oneMonthPay * (double) totalMonths;
+//        double totalPay = oneMonthPay * (double) totalMonths;
 
-        return totalPay;
+        return oneMonthPay;
     }
 }

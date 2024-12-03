@@ -1,3 +1,4 @@
+package prob4;
 public final class Paycheck {
     private double grossPay;
     private double fica;
