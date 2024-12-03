@@ -1,10 +1,8 @@
-
-package prob4;
 public class SalariedEmployee extends  Employee {
     private double salary;
 
-    public SalariedEmployee(String empId, double salary) {
-        super(empId);
+    public SalariedEmployee(String empId, String name, double salary) {
+        super(empId, name);
         this.salary = salary;
     }
 

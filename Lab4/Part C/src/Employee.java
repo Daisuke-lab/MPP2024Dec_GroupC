@@ -1,12 +1,13 @@
-package prob4;
 public abstract class Employee {
     private String empId;
+    private String name;
 
-    public Employee(String empId) {
+    public Employee(String empId, String name) {
         this.empId = empId;
+        this.name = name;
     }
 
-    public String print() { return ""; }
+    public String print() { return "Name: " + this.name + ", Id: " + this.empId; }
     
     public Paycheck calCompensation(int month, int year) {
         double grossPay = calcGrossPay(month, year);

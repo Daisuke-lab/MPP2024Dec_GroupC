@@ -1,4 +1,3 @@
-package prob4;
 import java.time.YearMonth;
 import java.util.*;
 public class Order {
@@ -7,10 +6,10 @@ public class Order {
 	private int orderAmount;
 	private Commissioned commissioned;
 	
-	public Order(int orderNo,YearMonth orderDate,int orderAmount,Commissioned commissioned) {
+	public Order(int orderNo, YearMonth orderDate, int orderAmount, Commissioned commissioned) {
 		this.orderNo = orderNo;
 		this.orderDate = orderDate;
-		this.orderAmount = this.orderAmount;
+		this.orderAmount = orderAmount;
 		this.commissioned = commissioned;
 	}
 

@@ -1,10 +1,9 @@
-package prob4;
 public class HourlyEmployee extends Employee {
     private double hourlyWage;
     private double hoursPerWeek;
 
-    public HourlyEmployee(String empId, double hourlyWage, double hoursPerWeek) {
-        super(empId);
+    public HourlyEmployee(String empId, String name, double hourlyWage, double hoursPerWeek) {
+        super(empId, name);
         this.hourlyWage = hourlyWage;
         this.hoursPerWeek = hoursPerWeek;
     }

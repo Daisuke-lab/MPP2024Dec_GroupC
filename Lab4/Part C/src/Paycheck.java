@@ -1,4 +1,3 @@
-package prob4;
 public final class Paycheck {
     private double grossPay;
     private double fica;
@@ -21,6 +20,6 @@ public final class Paycheck {
     }
 
     public String print() {
-        return "";
+        return "GrossPay: " + grossPay + ", NetPay: " + getNetPay();
     }
 }
