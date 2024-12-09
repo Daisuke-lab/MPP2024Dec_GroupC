@@ -1,5 +1,5 @@
-package prob5;
+package lab4q1;
 
 public interface QuackBehavior {
-	public void quack();
+    void quack();
 }

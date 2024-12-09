@@ -1,26 +1,13 @@
-package prob5;
+package lab4q1;
 
-public class MallardDuck extends Duck {
+public class MallardDuck  extends Duck {
+    public MallardDuck() {
+        super(new FlyWithWings(), new Quack(), "MallardDuck");
+    }
 
-	
-
-	@Override
-	public void quack() {
-		System.out.println("quacking");
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void display() {
-		System.out.println("display");
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	
-
-	
-
+    @Override
+    public void display() {
+        //System.out.println("Mallard duck");
+        System.out.println("\tDisplaying");
+    }
 }

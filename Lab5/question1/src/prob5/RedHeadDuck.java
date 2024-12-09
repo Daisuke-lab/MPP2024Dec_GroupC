@@ -1,14 +1,13 @@
-package prob5;
+package lab4q1;
 
-public class RedHeadDuck extends Duck{
+public class RedheadDuck extends Duck {
+    public RedheadDuck() {
+        super(new CannotFly(), new Squeak(), "RedheadDuck");
+    }
 
-	@Override
-	public void quack() {
-		// TODO Auto-generated method stub
-		System.out.println("quacking");
-	}
-
-
-
-
+    @Override
+    public void display() {
+        //System.out.println("I'm a RedheadDuck");
+        System.out.println("\tDisplaying");
+    }
 }
