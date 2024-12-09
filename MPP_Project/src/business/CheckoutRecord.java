@@ -12,7 +12,7 @@ final public class CheckoutRecord implements Serializable {
         this.entries = new ArrayList<CheckoutRecordEntry>();
     }
 
-    public List<CheckoutRecordEntry> entries() {
+    public List<CheckoutRecordEntry> getEntries() {
         return entries;
     }
 

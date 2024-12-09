@@ -10,6 +10,8 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
 
+import javax.xml.crypto.Data;
+
 public class SystemController implements ControllerInterface {
 	public static Auth currentAuth = null;
 	
@@ -60,6 +62,17 @@ public class SystemController implements ControllerInterface {
 
 		da.saveMember(member);
 		da.saveBook(book);
+	}
+
+	public CheckoutRecord getMemberCheckoutRecord(String memberID) throws CheckoutException {
+		DataAccess da = new DataAccessFacade();
+
+		LibraryMember member = da.searchMember(memberID);
+		if(member == null) {
+			throw new CheckoutException(CheckoutException.CheckoutErrorType.MEMBER_NOT_FOUND);
+		}
+
+		return member.getCheckoutRecord();
 	}
 
 	@Override
