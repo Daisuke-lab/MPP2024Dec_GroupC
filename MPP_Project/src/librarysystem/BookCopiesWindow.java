@@ -36,6 +36,7 @@ import business.SystemController;
 
 public class BookCopiesWindow extends JPanel implements LibWindow {
 	public static final BookCopiesWindow INSTANCE = new BookCopiesWindow();
+	SystemController sc = new SystemController();
 
 	private JPanel mainPanel;
 	private JPanel topPanel;
@@ -108,9 +109,6 @@ public class BookCopiesWindow extends JPanel implements LibWindow {
 	}
 
 	private void showBookCopiesRecord(String ISBN) throws LibrarySystemException {
-
-
-		SystemController sc = new SystemController();
 		List<BookCopy> bookCopyList = null;
 
 		try {
