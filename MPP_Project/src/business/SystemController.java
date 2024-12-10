@@ -73,6 +73,14 @@ public class SystemController implements ControllerInterface {
 		return member.getCheckoutRecord();
 	}
 
+	public BookCopy[] getBookCopyArray(String ISBN) throws LibrarySystemException{
+		DataAccess da = new DataAccessFacade();
+		Book book = da.searchBook(ISBN);
+		if(book==null) {
+			throw new LibrarySystemException("Book not found");
+		}
+		return book.getCopies();};
+
 	@Override
 	public List<String> allMemberIds() {
 		DataAccess da = new DataAccessFacade();
@@ -258,6 +266,8 @@ public class SystemController implements ControllerInterface {
 
 		return results;
 	}
+
+
 
 
 }

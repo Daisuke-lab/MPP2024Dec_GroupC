@@ -15,8 +15,9 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     public static  DashboardWindow INSTANCE = new DashboardWindow();
     private static String ADD_NEW_MEMBER_LABEL = "Add a new member";
     private static String CHECKOUT_BOOK_LABEL = "Checkout a book";
-    private static String COPY_BOOK_LABEL = "Copy a book";
-    private static String ADD_BOOK_LABEL = "Add a book";
+    private static String COPY_BOOK_LABEL = "Book copies";
+    private static String ADD_BOOK_LABEL = "Add Book";
+    private static String ADD_COPY_BOOK_LABEL = "Add Book Copies";
     private static String CHECKOUT_RECORD_LABEL = "Checkout a record";
     private static String LIBRARY_BOOKS_LABEL = "Books";
     private static String LIBRARY_MEMBERS_LABEL = "Members";
@@ -32,6 +33,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
         panels.put(ADD_BOOK_LABEL, AddBookWindow.INSTANCE);
         panels.put(LIBRARY_BOOKS_LABEL, AllBookIdsWindow.INSTANCE);
         panels.put(LIBRARY_MEMBERS_LABEL, AllMemberIdsWindow.INSTANCE);
+        panels.put(COPY_BOOK_LABEL, BookCopiesWindow.INSTANCE);
+        panels.put(ADD_COPY_BOOK_LABEL, AddBookCopyWindow.INSTANCE);
         setSize(750, 500);
 
         linkList = new JList<String>(panels.keySet().toArray(new String[0]));
@@ -69,6 +72,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
                 cards.add(panels.get(LIBRARY_MEMBERS_LABEL), LIBRARY_MEMBERS_LABEL);
                 cards.add(panels.get(LIBRARY_BOOKS_LABEL), LIBRARY_BOOKS_LABEL);
 
+                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
+                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
                 break;
             case Auth.LIBRARIAN:
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
@@ -79,6 +84,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
                 cards.add(panels.get(ADD_BOOK_LABEL), ADD_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
+                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
+                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
                 break;
             default:
                 LibrarySystem.hideAllWindows();

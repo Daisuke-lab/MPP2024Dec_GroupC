@@ -187,24 +187,25 @@ public class LoginWindow extends JFrame implements LibWindow {
     			LibrarySystem.INSTANCE.setVisible(true);
     		});
     	}
+
+
     	
     	private void addLoginButtonListener(JButton butn) {
     		butn.addActionListener(evt -> {
 				try {
 					controller.login(username.getText(), password.getText());
-					LibrarySystem.hideAllWindows();
-					DashboardWindow.INSTANCE.init();
-					Util.centerFrameOnDesktop(DashboardWindow.INSTANCE);
-					DashboardWindow.INSTANCE.setVisible(true);
+					moveToDashboardWindow();
 				} catch (LoginException e) {
 					JOptionPane.showMessageDialog(this,e.getMessage());
 				}
-
-
-
-    				
     		});
     	}
+		private void moveToDashboardWindow() {
+			LibrarySystem.hideAllWindows();
+			DashboardWindow.INSTANCE.init();
+			Util.centerFrameOnDesktop(DashboardWindow.INSTANCE);
+			DashboardWindow.INSTANCE.setVisible(true);
+		}
 	
         
     

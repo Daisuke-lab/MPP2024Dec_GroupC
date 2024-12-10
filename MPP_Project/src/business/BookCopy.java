@@ -11,6 +11,7 @@ final public class BookCopy implements Serializable {
 	private Book book;
 	private int copyNum;
 	private boolean isAvailable;
+	private LibraryMember libraryMember;
 
 	BookCopy(Book book, int copyNum, boolean isAvailable) {
 		this.book = book;
@@ -42,7 +43,10 @@ final public class BookCopy implements Serializable {
 	public void setAvailable(Boolean value) {
 		this.isAvailable = value;
 	}
-	
+	public LibraryMember getLibraryMemberOfBookCopy() {
+		return libraryMember;
+	}
+
 	@Override
 	public boolean equals(Object ob) {
 		if(ob == null) return false;
