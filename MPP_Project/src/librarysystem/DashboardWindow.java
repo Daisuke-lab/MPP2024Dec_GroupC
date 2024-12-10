@@ -70,6 +70,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
             case Auth.BOTH:
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
+                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
+                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
                 break;
             default:
                 LibrarySystem.hideAllWindows();
