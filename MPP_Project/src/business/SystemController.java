@@ -10,8 +10,6 @@ import dataaccess.DataAccess;
 import dataaccess.DataAccessFacade;
 import dataaccess.User;
 
-import javax.xml.crypto.Data;
-
 public class SystemController implements ControllerInterface {
 	public static Auth currentAuth = null;
 	

@@ -27,6 +27,7 @@ public class DashboardWindow extends JFrame implements LibWindow  {
         panels.put(COPY_BOOK_LABEL, BookCopiesWindow.INSTANCE);
         panels.put(ADD_COPY_BOOK_LABEL, AddBookCopyWindow.INSTANCE);
         setSize(500, 350);
+        setSize(750, 500);
 
         linkList = new JList<String>(panels.keySet().toArray(new String[0]));
         createPanels();
@@ -55,9 +56,7 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
     public void createPanels() {
         cards = new JPanel(new CardLayout());
-        JPanel panel1 = new JPanel();
-        JLabel label1 = new JLabel("Item 1 Panel");
-        panel1.add(label1);
+
 
         switch (SystemController.currentAuth) {
             case Auth.ADMIN:
