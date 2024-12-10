@@ -8,5 +8,6 @@ public interface ControllerInterface {
 	public CheckoutRecord getMemberCheckoutRecord(String memberId) throws CheckoutException;
 	public List<String> allMemberIds();
 	public List<String> allBookIds();
-	
+	void addBookCopy(String isbn, int noOfCopies) throws LibrarySystemException;
+
 }
