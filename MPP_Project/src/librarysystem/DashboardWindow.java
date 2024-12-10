@@ -16,7 +16,7 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     private static String ADD_NEW_MEMBER_LABEL = "Add a new member";
     private static String CHECKOUT_BOOK_LABEL = "Checkout a book";
     private static String COPY_BOOK_LABEL = "Copy a book";
-    private static String ADD_BOOK_LABEL = "Add a book";
+    private static String ADD_COPY_BOOK_LABEL = "Book Copies";
     private static String CHECKOUT_RECORD_LABEL = "Checkout a record";
     private static Map<String, JPanel> panels = new HashMap<>();
 
@@ -24,6 +24,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     public void init() {
         panels.put(CHECKOUT_BOOK_LABEL, CheckoutBookWindow.INSTANCE);
         panels.put(CHECKOUT_RECORD_LABEL, CheckoutRecordWindow.INSTANCE);
+        panels.put(COPY_BOOK_LABEL, BookCopiesWindow.INSTANCE);
+        panels.put(ADD_COPY_BOOK_LABEL, AddBookCopyWindow.INSTANCE);
         setSize(500, 350);
 
         linkList = new JList<String>(panels.keySet().toArray(new String[0]));
@@ -59,6 +61,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
         switch (SystemController.currentAuth) {
             case Auth.ADMIN:
+                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
+                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
                 break;
             case Auth.LIBRARIAN:
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);

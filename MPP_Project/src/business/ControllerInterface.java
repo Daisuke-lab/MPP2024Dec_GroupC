@@ -11,5 +11,6 @@ public interface ControllerInterface {
 	public void checkoutBook(String memberId, String isbn) throws CheckoutException;
 	public List<String> allMemberIds();
 	public List<String> allBookIds();
-	
+	void addBookCopy(String isbn, int noOfCopies) throws LibrarySystemException;
+
 }

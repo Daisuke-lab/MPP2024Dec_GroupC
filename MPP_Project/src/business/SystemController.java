@@ -75,6 +75,14 @@ public class SystemController implements ControllerInterface {
 		return member.getCheckoutRecord();
 	}
 
+	public BookCopy[] getBookCopyArray(String ISBN) throws LibrarySystemException{
+		DataAccess da = new DataAccessFacade();
+		Book book = da.searchBook(ISBN);
+		if(book==null) {
+			throw new LibrarySystemException("Book not found");
+		}
+		return book.getCopies();};
+
 	@Override
 	public List<String> allMemberIds() {
 		DataAccess da = new DataAccessFacade();
@@ -90,6 +98,55 @@ public class SystemController implements ControllerInterface {
 		retval.addAll(da.readBooksMap().keySet());
 		return retval;
 	}
-	
-	
+
+	public static String[][] allBooks() {
+
+		DataAccess da = new DataAccessFacade();
+		List<Book> retval = new ArrayList<>();
+		retval.addAll(da.readBooksMap().values());
+		String[][] results = new String[retval.size()][5];
+		int i = 0;
+		for (Book lb : retval) {
+			String[] value = new String[5];
+			value[0] = (i+1)+"";
+			value[1] = lb.getIsbn();
+			value[2] = lb.getTitle();
+			value[3] = lb.getMaxCheckoutLength()+"";
+			value[4] = lb.getNumCopies()+"";
+			results[i] = value;
+			i++;
+		}
+
+		return results;
+	}
+
+
+	@Override
+	public void addBookCopy(String isbn, int noOfCopies) throws LibrarySystemException {
+		DataAccess da = new DataAccessFacade();
+		Book book = null;
+		try {
+			if(noOfCopies <=0) throw new NullPointerException("Copies cannot be zero!");
+
+			try {
+				book = da.searchBook(isbn);
+				if(book == null) throw new LibrarySystemException("Book doesn't exist!");
+			} catch(LibrarySystemException e) {
+				throw new LibrarySystemException(e.getMessage());
+			}
+
+
+			for(int i=0; i<noOfCopies; i++) {
+				BookCopy c = new BookCopy(book, book.getNumCopies()+1, true);
+				book.addCopy(c);
+				da.saveBook(book);
+			}
+		} catch (NullPointerException e) {
+			throw new LibrarySystemException(e.getMessage());
+		}
+	}
+
+
+
+
 }
