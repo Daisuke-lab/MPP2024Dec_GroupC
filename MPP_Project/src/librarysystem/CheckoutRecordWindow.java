@@ -79,7 +79,7 @@ public class CheckoutRecordWindow extends JPanel implements LibWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String memberID = memberIDText.getText();
-                showMemberCheckRecord(memberID);
+                showMemberCheckoutRecord(memberID);
             }
         });
         middlePanel.add(memberID);
@@ -95,7 +95,7 @@ public class CheckoutRecordWindow extends JPanel implements LibWindow {
         middlePanel.add(scrollPane);
     }
 
-    private void showMemberCheckRecord(String memberID) {
+    private void showMemberCheckoutRecord(String memberID) {
         // Use JTable to render member’s checkout records
         SystemController sc = new SystemController();
         CheckoutRecord checkoutRecord;

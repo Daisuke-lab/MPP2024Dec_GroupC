@@ -24,7 +24,7 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     public void init() {
         panels.put(CHECKOUT_BOOK_LABEL, CheckoutBookWindow.INSTANCE);
         panels.put(CHECKOUT_RECORD_LABEL, CheckoutRecordWindow.INSTANCE);
-        setSize(500, 350);
+        setSize(750, 500);
 
         linkList = new JList<String>(panels.keySet().toArray(new String[0]));
         createPanels();

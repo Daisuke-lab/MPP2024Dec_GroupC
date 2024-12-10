@@ -13,7 +13,7 @@ final public class LibraryMember extends Person implements Serializable {
 	
 	public LibraryMember(String memberId, String fname, String lname, String tel,Address add) {
 		super(fname,lname, tel, add);
-		this.memberId = memberId;		
+		this.memberId = memberId;
 	}
 
 	public String getMemberId() {
