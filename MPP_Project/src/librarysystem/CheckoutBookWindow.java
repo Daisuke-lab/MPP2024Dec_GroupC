@@ -20,6 +20,8 @@ import business.SystemController;
 
 public class CheckoutBookWindow extends JPanel implements LibWindow {
     public static final CheckoutBookWindow INSTANCE = new CheckoutBookWindow();
+    SystemController systemController = new SystemController();
+
     private boolean isInitialized = false;
     public JPanel getMainPanel() {
         return mainPanel;
@@ -66,7 +68,7 @@ public class CheckoutBookWindow extends JPanel implements LibWindow {
         memberIDText = new JTextField(11);
         isbnText = new JTextField(11);
         JButton checkoutButton = new JButton("CheckOut");
-        SystemController systemController = new SystemController();
+
         checkoutButton.addActionListener(new ActionListener() {
 
             @Override

@@ -28,7 +28,7 @@ import business.*;
 
 public class CheckoutRecordWindow extends JPanel implements LibWindow {
     public static final CheckoutRecordWindow INSTANCE = new CheckoutRecordWindow();
-    SystemController ci = new SystemController();
+    SystemController sc = new SystemController();
 
     private JPanel mainPanel;
     private JPanel topPanel;
@@ -97,7 +97,6 @@ public class CheckoutRecordWindow extends JPanel implements LibWindow {
 
     private void showMemberCheckoutRecord(String memberID) {
         // Use JTable to render member’s checkout records
-        SystemController sc = new SystemController();
         CheckoutRecord checkoutRecord;
         try {
             checkoutRecord = sc.getMemberCheckoutRecord(memberID);
