@@ -156,6 +156,17 @@ public class SystemController implements ControllerInterface {
 			authorObj = new Author(author, "", "", new Address("", "", "", ""), "Best author");
 			authorNewList.add(authorObj);
 		}
+		
+		try {
+			if(authorNewList.size()==0){
+				throw new LibrarySystemException("We need to add an author at least once");
+
+			}
+
+
+		} catch (NullPointerException e) {
+			throw new LibrarySystemException(e.getMessage());
+		}
 
 		book = new Book(isbn,title,checkoutDuration,authorNewList);
 		da.saveBook(book);
