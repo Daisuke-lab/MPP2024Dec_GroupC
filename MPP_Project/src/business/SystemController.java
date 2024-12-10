@@ -57,6 +57,7 @@ public class SystemController implements ControllerInterface {
 
 		// Add the checkout entry to the member's CheckoutRecord
 		member.checkout(availableCopy, checkoutDate, dueDate);
+		availableCopy.setLibraryMember(member);
 
 		da.saveMember(member);
 		da.saveBook(book);

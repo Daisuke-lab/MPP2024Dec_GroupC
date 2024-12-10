@@ -20,4 +20,11 @@ final public class CheckoutRecord implements Serializable {
         this.entries.add(entry);
         entry.setCheckoutRecord(this);
     }
+
+    public CheckoutRecordEntry getEntryByBookCopy(BookCopy copy) {
+        for (CheckoutRecordEntry checkoutRecordEntry : entries) {
+            if(copy.equals(checkoutRecordEntry.getBookCopy())) return checkoutRecordEntry;
+        }
+        return null;
+    }
 }

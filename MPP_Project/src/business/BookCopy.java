@@ -43,8 +43,12 @@ final public class BookCopy implements Serializable {
 	public void setAvailable(Boolean value) {
 		this.isAvailable = value;
 	}
+
 	public LibraryMember getLibraryMemberOfBookCopy() {
 		return libraryMember;
+	}
+	public void setLibraryMember(LibraryMember member) {
+		this.libraryMember = member;
 	}
 
 	@Override
