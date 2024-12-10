@@ -51,7 +51,7 @@ public class AddBookCopyWindow extends JPanel implements LibWindow {
 		JButton addBookCopyButton = new JButton("Add Copy");
 
 		addBookCopyButton.setBackground(Color.decode("#4CAF50")); // Green background
-		addBookCopyButton.setForeground(Color.WHITE);
+		addBookCopyButton.setForeground(Color.DARK_GRAY);
 		addBookCopyButton.setFocusPainted(false);
 		addBookCopyButton.setFont(new Font("SansSerif", Font.BOLD, 14));
 
