@@ -197,7 +197,7 @@ public class LoginWindow extends JFrame implements LibWindow {
 					Util.centerFrameOnDesktop(DashboardWindow.INSTANCE);
 					DashboardWindow.INSTANCE.setVisible(true);
 				} catch (LoginException e) {
-					JOptionPane.showMessageDialog(this,"Username or/and Password is incorrect");
+					JOptionPane.showMessageDialog(this,e.getMessage());
 				}
 
 

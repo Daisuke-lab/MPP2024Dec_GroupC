@@ -53,9 +53,7 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
     public void createPanels() {
         cards = new JPanel(new CardLayout());
-        JPanel panel1 = new JPanel();
-        JLabel label1 = new JLabel("Item 1 Panel");
-        panel1.add(label1);
+
 
         switch (SystemController.currentAuth) {
             case Auth.ADMIN:
