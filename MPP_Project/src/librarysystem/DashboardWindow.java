@@ -3,10 +3,10 @@ package librarysystem;
 import business.SystemController;
 import dataaccess.Auth;
 
+import java.util.*;
 import javax.swing.*;
 import java.awt.*;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.List;
 
 public class DashboardWindow extends JFrame implements LibWindow  {
     JList<String> linkList;
@@ -21,24 +21,15 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     private static String CHECKOUT_RECORD_LABEL = "Checkout a record";
     private static String LIBRARY_BOOKS_LABEL = "Books";
     private static String LIBRARY_MEMBERS_LABEL = "Members";
-    private static Map<String, JPanel> panels = new HashMap<>();
+    private static List<String> panels = new ArrayList<>();
 
     private DashboardWindow() {};
     public void init() {
-        panels.put(ADD_NEW_MEMBER_LABEL, AddNewLibraryMemberWindow.INSTANCE);
-        panels.put(CHECKOUT_BOOK_LABEL, CheckoutBookWindow.INSTANCE);
-        panels.put(CHECKOUT_RECORD_LABEL, CheckoutRecordWindow.INSTANCE);
-        panels.put(ADD_BOOK_LABEL, AddBookWindow.INSTANCE);
 
-        panels.put(ADD_BOOK_LABEL, AddBookWindow.INSTANCE);
-        panels.put(LIBRARY_BOOKS_LABEL, AllBookIdsWindow.INSTANCE);
-        panels.put(LIBRARY_MEMBERS_LABEL, AllMemberIdsWindow.INSTANCE);
-        panels.put(COPY_BOOK_LABEL, BookCopiesWindow.INSTANCE);
-        panels.put(ADD_COPY_BOOK_LABEL, AddBookCopyWindow.INSTANCE);
         setSize(750, 500);
-
-        linkList = new JList<String>(panels.keySet().toArray(new String[0]));
         createPanels();
+
+
         // set up split panes
         JSplitPane splitPane = new JSplitPane(
                 JSplitPane.HORIZONTAL_SPLIT, linkList, cards);
@@ -66,26 +57,29 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
         switch (SystemController.currentAuth) {
             case Auth.ADMIN:
-                cards.add(panels.get(ADD_NEW_MEMBER_LABEL), ADD_NEW_MEMBER_LABEL);
-                cards.add(panels.get(ADD_BOOK_LABEL), ADD_BOOK_LABEL);
-                cards.add(panels.get(LIBRARY_BOOKS_LABEL), LIBRARY_BOOKS_LABEL);
-                cards.add(panels.get(LIBRARY_MEMBERS_LABEL), LIBRARY_MEMBERS_LABEL);
-                cards.add(panels.get(LIBRARY_BOOKS_LABEL), LIBRARY_BOOKS_LABEL);
-
-                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
-                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
+                cards.add(AddNewLibraryMemberWindow.INSTANCE, ADD_NEW_MEMBER_LABEL);
+                cards.add(AddBookWindow.INSTANCE, ADD_BOOK_LABEL);
+                cards.add(AllBookIdsWindow.INSTANCE, LIBRARY_BOOKS_LABEL);
+                cards.add(AllMemberIdsWindow.INSTANCE, LIBRARY_MEMBERS_LABEL);
+                cards.add(BookCopiesWindow.INSTANCE, COPY_BOOK_LABEL);
+                cards.add(AddBookCopyWindow.INSTANCE, ADD_COPY_BOOK_LABEL);
+                panels.addAll(new ArrayList<>(Arrays.asList(new String[]{ADD_NEW_MEMBER_LABEL, ADD_BOOK_LABEL, LIBRARY_BOOKS_LABEL, LIBRARY_MEMBERS_LABEL, COPY_BOOK_LABEL, ADD_COPY_BOOK_LABEL})));
                 break;
             case Auth.LIBRARIAN:
-                cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
-                cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
+                cards.add(CheckoutBookWindow.INSTANCE, CHECKOUT_BOOK_LABEL);
+                cards.add(CheckoutRecordWindow.INSTANCE, CHECKOUT_RECORD_LABEL);
+                panels.addAll(new ArrayList<>(Arrays.asList(new String[]{CHECKOUT_BOOK_LABEL, CHECKOUT_RECORD_LABEL})));
                 break;
             case Auth.BOTH:
-                cards.add(panels.get(ADD_NEW_MEMBER_LABEL), ADD_NEW_MEMBER_LABEL);
-                cards.add(panels.get(ADD_BOOK_LABEL), ADD_BOOK_LABEL);
-                cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
-                cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
-                cards.add(panels.get(COPY_BOOK_LABEL), COPY_BOOK_LABEL);
-                cards.add(panels.get(ADD_COPY_BOOK_LABEL), ADD_COPY_BOOK_LABEL);
+                cards.add(AddNewLibraryMemberWindow.INSTANCE, ADD_NEW_MEMBER_LABEL);
+                cards.add(AddBookWindow.INSTANCE, ADD_BOOK_LABEL);
+                cards.add(AllBookIdsWindow.INSTANCE, LIBRARY_BOOKS_LABEL);
+                cards.add(AllMemberIdsWindow.INSTANCE, LIBRARY_MEMBERS_LABEL);
+                cards.add(BookCopiesWindow.INSTANCE, COPY_BOOK_LABEL);
+                cards.add(AddBookCopyWindow.INSTANCE, ADD_COPY_BOOK_LABEL);
+                cards.add(CheckoutBookWindow.INSTANCE, CHECKOUT_BOOK_LABEL);
+                cards.add(CheckoutRecordWindow.INSTANCE, CHECKOUT_RECORD_LABEL);
+                panels.addAll(new ArrayList<>(Arrays.asList(new String[]{ADD_NEW_MEMBER_LABEL, ADD_BOOK_LABEL, LIBRARY_BOOKS_LABEL, LIBRARY_MEMBERS_LABEL, COPY_BOOK_LABEL, ADD_COPY_BOOK_LABEL, CHECKOUT_BOOK_LABEL, CHECKOUT_RECORD_LABEL})));
                 break;
             default:
                 LibrarySystem.hideAllWindows();
@@ -94,6 +88,8 @@ public class DashboardWindow extends JFrame implements LibWindow  {
                 LoginWindow.INSTANCE.setVisible(true);
                 return;
         }
+
+        linkList = new JList<String>(panels.toArray(new String[0]));
 
 
         //connect JList elements to CardLayout panels
