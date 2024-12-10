@@ -18,12 +18,20 @@ public class DashboardWindow extends JFrame implements LibWindow  {
     private static String COPY_BOOK_LABEL = "Copy a book";
     private static String ADD_BOOK_LABEL = "Add a book";
     private static String CHECKOUT_RECORD_LABEL = "Checkout a record";
+    private static String LIBRARY_BOOKS_LABEL = "Books";
+    private static String LIBRARY_MEMBERS_LABEL = "Members";
     private static Map<String, JPanel> panels = new HashMap<>();
 
     private DashboardWindow() {};
     public void init() {
+        panels.put(ADD_NEW_MEMBER_LABEL, AddNewLibraryMemberWindow.INSTANCE);
         panels.put(CHECKOUT_BOOK_LABEL, CheckoutBookWindow.INSTANCE);
         panels.put(CHECKOUT_RECORD_LABEL, CheckoutRecordWindow.INSTANCE);
+        panels.put(ADD_BOOK_LABEL, AddBookWindow.INSTANCE);
+
+        panels.put(ADD_BOOK_LABEL, AddBookWindow.INSTANCE);
+        panels.put(LIBRARY_BOOKS_LABEL, AllBookIdsWindow.INSTANCE);
+        panels.put(LIBRARY_MEMBERS_LABEL, AllMemberIdsWindow.INSTANCE);
         setSize(750, 500);
 
         linkList = new JList<String>(panels.keySet().toArray(new String[0]));
@@ -40,14 +48,12 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
     @Override
     public boolean isInitialized() {
-
         return isInitialized;
     }
 
     @Override
     public void isInitialized(boolean val) {
         isInitialized = val;
-
     }
 
 
@@ -57,12 +63,20 @@ public class DashboardWindow extends JFrame implements LibWindow  {
 
         switch (SystemController.currentAuth) {
             case Auth.ADMIN:
+                cards.add(panels.get(ADD_NEW_MEMBER_LABEL), ADD_NEW_MEMBER_LABEL);
+                cards.add(panels.get(ADD_BOOK_LABEL), ADD_BOOK_LABEL);
+                cards.add(panels.get(LIBRARY_BOOKS_LABEL), LIBRARY_BOOKS_LABEL);
+                cards.add(panels.get(LIBRARY_MEMBERS_LABEL), LIBRARY_MEMBERS_LABEL);
+                cards.add(panels.get(LIBRARY_BOOKS_LABEL), LIBRARY_BOOKS_LABEL);
+
                 break;
             case Auth.LIBRARIAN:
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
                 break;
             case Auth.BOTH:
+                cards.add(panels.get(ADD_NEW_MEMBER_LABEL), ADD_NEW_MEMBER_LABEL);
+                cards.add(panels.get(ADD_BOOK_LABEL), ADD_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_BOOK_LABEL), CHECKOUT_BOOK_LABEL);
                 cards.add(panels.get(CHECKOUT_RECORD_LABEL), CHECKOUT_RECORD_LABEL);
                 break;

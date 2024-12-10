@@ -121,8 +121,8 @@ public class LibrarySystem extends JFrame implements LibWindow {
 				sb.append(s + "\n");
 			}
 			System.out.println(sb.toString());
-			AllBookIdsWindow.INSTANCE.setData(sb.toString());
-			AllBookIdsWindow.INSTANCE.pack();
+//			AllBookIdsWindow.INSTANCE.setData(sb.toString());
+//			AllBookIdsWindow.INSTANCE.pack();
 			//AllBookIdsWindow.INSTANCE.setSize(660,500);
 			Util.centerFrameOnDesktop(AllBookIdsWindow.INSTANCE);
 			AllBookIdsWindow.INSTANCE.setVisible(true);
@@ -148,8 +148,8 @@ public class LibrarySystem extends JFrame implements LibWindow {
 				sb.append(s + "\n");
 			}
 			System.out.println(sb.toString());
-			AllMemberIdsWindow.INSTANCE.setData(sb.toString());
-			AllMemberIdsWindow.INSTANCE.pack();
+//			AllMemberIdsWindow.INSTANCE.setData(sb.toString());
+//			AllMemberIdsWindow.INSTANCE.pack();
 			//AllMemberIdsWindow.INSTANCE.setSize(660,500);
 			Util.centerFrameOnDesktop(AllMemberIdsWindow.INSTANCE);
 			AllMemberIdsWindow.INSTANCE.setVisible(true);

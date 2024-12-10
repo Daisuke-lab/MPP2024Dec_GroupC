@@ -44,7 +44,13 @@ final public class Book implements Serializable {
 		return retVal;
 		
 	}
-	
+	public void addCopy(BookCopy bookCopy) {
+		BookCopy[] newArr = new BookCopy[copies.length + 1];
+		System.arraycopy(copies, 0, newArr, 0, copies.length);
+		newArr[copies.length] = bookCopy;
+		copies = newArr;
+
+	}
 	public void addCopy() {
 		BookCopy[] newArr = new BookCopy[copies.length + 1];
 		System.arraycopy(copies, 0, newArr, 0, copies.length);
