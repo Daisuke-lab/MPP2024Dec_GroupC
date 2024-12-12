@@ -1,0 +1,1 @@
+C.To fix an issue in this problem, overriding hashcode function is required from the Object class for HashMap to filter duplicate elements. in \cf2 Java collections like HashSet or methods like contains() which rely on both equals and hashCode to compare and quickly locate objects.

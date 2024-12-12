@@ -1,0 +1,8 @@
+When D is a Class
+Java does not support multiple inheritance for classes. A class D can only extend one class, either B or C.
+If D extends B, it inherits the implementation of method() from B and If D extends C, it inherits the implementation of method() from C.
+
+When D is an Interface
+If D, B, and C are interfaces:
+In Java 8, interfaces can have default methods (methods with an implementation).
+If D inherits method() from both B and C, the compiler requires overriding implementations in D if both B and C provide conflicting implementations.
