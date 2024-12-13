@@ -1,0 +1,1 @@
+D.To fix an issue in this problem, exclude the visited field which is not relevant for duplicate detection. The visited field is a mutable property (can change dynamically), and it does not define the identity of an Employee in the context of duplicate removal.

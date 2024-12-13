@@ -1,0 +1,1 @@
+B.This method is not overriding the equals method from the Object class. Instead, it defines a new method with a different signature because the parameter type is Employee, not Object.

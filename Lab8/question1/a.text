@@ -1,0 +1,11 @@
+(i) Runnable r = () → { ... }
+Parameters: None (the lambda expression uses () indicating no parameters).
+Free Variables:
+s: Used for the array size and loop bounds but not declared within the lambda.
+t: Used similarly for the array size and loop bounds but not declared within the lambda.
+(ii) Comparator<String> comp = (s, t) → { ... }
+Parameters:
+s: First string parameter to compare.
+t: Second string parameter to compare.
+Free Variables:
+ignoreCase: Used in the conditional statement but not declared within the lambda.
