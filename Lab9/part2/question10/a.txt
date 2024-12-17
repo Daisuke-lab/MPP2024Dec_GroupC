@@ -1,0 +1,17 @@
+IntStream.generate(() -> 1)  generates an infinite stream of 1s. The lambda () -> 1 always returns the value 1.
+
+distinct() operation attempts to remove duplicate elements in the stream. Since the stream only contains the value 1, 
+all elements after the first will be considered duplicates.
+
+forEach(System.out::println) tries to consume the stream and print each distinct element. Since there’s only one unique value (1), it will print 1.
+
+
+The problem is the code will hang because of gnerate() produces an infinte stream
+
+
+##Fix by add limit operation
+
+    public static void main(String[] args) {
+        IntStream ones = IntStream.generate(() -> 1).limit(10).distinct();
+        ones.forEach(System.out::println);
+    }
